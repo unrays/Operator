@@ -28,9 +28,13 @@ d
 
 #### Main
 ```cpp
-int main {
+int main() {
   using Pipeline =
-    FunctionOperator< SubscriptOperator< FunctionOperator<> > >;
+    FunctionOperator<
+      SubscriptOperator<
+        FunctionOperator<>
+     >
+   >;
   
   Pipeline pipeline({});
   
