@@ -112,7 +112,6 @@ pipeline[0, 10, 20](30, 40, 50, 60, 70)[80]; // Compiles
 pipeline[0, 10](20, 30, 40)[50]; // Doesn't compile
 ```
 
----
 
 ### Example 2: Implement your own operator
 
