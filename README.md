@@ -1,6 +1,6 @@
-# Operator (probably Linkly)
+# Linkly
 
-> Operator is a C++ compile-time meta programming library for building composable operator pipelines.  
+> Linkly is a C++ compile-time meta programming library for building composable operator pipelines.  
 > This library is intended for developers wishing to create their own DSL using ultra-high-performance, fully compile-time and type-safe operator pipelines.
 
 ---
@@ -48,8 +48,8 @@ Instructions on how to install, include, or build the library.
 This library is **header-only**, so you just need to include the main header in your project:
 
 ```cpp
-#include "operator.h"
-using namespace v6;
+#include "linkly.hpp"
+using namespace linkly;
 ````
 
 ---
@@ -61,8 +61,8 @@ Basic usage of the library involves creating operator chains and terminating the
 ### Step 1: Create a pipeline
 
 ```cpp
-#include "operator.h"
-using namespace v6;
+#include "linkly.hpp"
+using namespace linkly;
 
 // Create a FunctionOperator pipeline
 auto pipeline = FunctionOperator<SubscriptOperator<>>{};
@@ -74,8 +74,8 @@ auto pipeline = FunctionOperator<0, std::tuple<>, SubscriptOperator<0, std::tupl
 ### Step 2: Execute the pipeline
 
 ```cpp
-#include "operator.h"
-using namespace v6;
+#include "linkly.hpp"
+using namespace linkly;
 
 // Provide some arguments; the pipeline collects them internally
 pipeline(0, 250, 500)[750, 1000];
@@ -84,8 +84,8 @@ pipeline(0, 250, 500)[750, 1000];
 ### Step 3: End the pipeline
 
 ```cpp
-#include "operator.h"
-using namespace v6;
+#include "linkly.hpp"
+using namespace linkly;
 
 // Automatically terminates when pipeline reaches End
 auto final_state = pipeline(10, 20)[30, 40, 50]; // returns collected arguments
@@ -98,8 +98,8 @@ auto final_state = pipeline(10, 20)[30, 40, 50]; // returns collected arguments
 ### Example 1: Specify the size of arguments
 
 ```cpp
-#include "operator.h"
-using namespace v6;
+#include "linkly.hpp"
+using namespace linkly;
 
 auto pipeline = SubscriptOperator<3,
                     FunctionOperator<5,
@@ -118,8 +118,8 @@ pipeline[0, 10](20, 30, 40)[50]; // Doesn't compile
 #### Base provided by the API
 
 ```cpp
-#include "operator.h"
-using namespace v6;
+#include "linkly.hpp"
+using namespace linkly;
 
 template<typename>
 struct FunctionOperatorBase;
@@ -151,8 +151,8 @@ struct FunctionOperatorBase<DerivedOperator<Arity, Next, State>> {
 #### Implementation using this base
 
 ```cpp
-#include "operator.h"
-using namespace v6;
+#include "linkly.hpp"
+using namespace linkly;
 
 template<
     std::size_t Arity,
