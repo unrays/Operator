@@ -68,7 +68,7 @@ using namespace linkly;
 auto pipeline = FunctionOperator<SubscriptOperator<>>{};
 
 // Equivalent explicit template version specifying arity, state, and next operator
-auto pipeline = FunctionOperator<0, std::tuple<>, SubscriptOperator<0, std::tuple<>, End>>{};
+    auto pipeline = FunctionOperator<0, std::tuple<>, SubscriptOperator<0, std::tuple<>, DefaultEndOperator>>{};
 ```
 
 ### Step 2: Execute the pipeline
