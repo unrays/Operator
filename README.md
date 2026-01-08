@@ -196,7 +196,10 @@ private:
             >(std::move(concat_state_args)); // std::move the current state and passes it to the next node via its constructor
     }
 
-    LINKLY_GENERATE_OPERATOR_ALIAS(EntityIndexerOperator, EntityIndexerOperator_);
+     LINKLY_GENERATE_OPERATOR_ALIAS(EntityIndexerOperator, EntityIndexerOperator_);
+     // In this case, this generates:
+     //    EntityIndexerOperator<{Next operator (default=DefaultEndOperator)}, {State (default=std::tuple<>)}> 
+     //    EntityIndexerOperator_n<{arity (default=0)}, {Next operator (default=DefaultEndOperator)}, {State (default=std::tuple<>)}>
 };
 ```
 
