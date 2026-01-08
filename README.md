@@ -28,8 +28,8 @@
 ## Motivation
 Originally, my plan was to implement a fluent design system for the front end of my ECS game engine. I started a week ago and I had never dealt with this kind of concept before.  I then got to work and began developing a small, entirely compile-time system. Gradually, this small side project transformed into a full-fledged project, which itself evolved into a library.  
 
-The main problem with chaining compile-time operators is that it's difficult to extract information from the next node and adapt that node to the conditions of the previous one if everything is compiled-time.  
-The solution, using template and `using` statements, allows me to model and recreate subsequent nodes from scratch with their original attributes, but adding the types and information of the current node, such as the data container or size constraints, for example.
+The main problem with chaining compile-time elements is that, since these elements are compiled `before` being received in the previous node, it is `not directly possible` to interact with or modify its templated types.
+The solution, using template and `using` statements, allows me to model and recreate `subsequent nodes` from scratch with their original attributes, but adding the types and information of the current node, such as the data container or size constraints, for example.
 
 This project is the culmination of my journey learning metaprogramming in C++, which I naively began a little less than two months ago. This is my first library ever, and I'm sure there are many things that can be improved. Feel free to share your suggestions!
 
