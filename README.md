@@ -193,7 +193,7 @@ private:
                 decltype(concat_state_args) // Resolves the type of the current state and sends it
                                             // This allows the next node to store the tuple as a member
 
-            > (std::move(concat_state_args)); // std::move the current state and passes it to the next node via its constructor
+            >(std::move(concat_state_args)); // std::move the current state and passes it to the next node via its constructor
     }
 };
 
